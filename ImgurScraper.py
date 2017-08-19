@@ -12,6 +12,8 @@ def main():
     soup = bs(page.data, 'html.parser')
     
     link = ["http:"+ls.get('href') for ls in soup.find_all('a', {"class" : "zoom"})]
+    for vd in soup.find_all('source'):
+        link.append('http:'+vd.get('src'))
     #the code below have be optimezed
     # ls = soup.find_all('a', {"class" : "zoom"})
     # for lk in ls:
